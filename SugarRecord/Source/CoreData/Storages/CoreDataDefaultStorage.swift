@@ -148,6 +148,8 @@ internal func cdContext(withParent parent: CoreDataContextParent?, concurrencyTy
     else {
         context = NSManagedObjectContext(concurrencyType: concurrencyType)
     }
+    context?.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+    
     if let parent = parent {
         switch parent {
         case .context(let parentContext):
